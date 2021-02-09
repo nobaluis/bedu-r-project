@@ -1,10 +1,11 @@
 # Proyecto de fin de módulo: Kaggle Titanic Challenge
 
-![Github language](https://img.shields.io/badge/language-r-blue) ![Github contributors](https://img.shields.io/github/contributors/nobaluis/bedu-r-project)
+![Github language](https://img.shields.io/badge/language-r-blue)
+![Github contributors](https://img.shields.io/github/contributors/nobaluis/bedu-r-project)
 
 ## Descripción
 
-Este repositorio contiene los archivos referentes al proyecto del Módulo 02 del curso de Santander Data Science de BEDU (2021) del equipo 22.
+Este repositorio contiene los archivos referentes al proyecto del Módulo 02 (`R`) del curso de Santander Data Science de BEDU del **equipo 22**. Adicional a este repositorio se creó un [notebook](https://nobaluis.github.io/bedu-r-project/) donde se encuentran todos los detalles de la implementación.
 
 ## Requerimientos
 
@@ -21,9 +22,9 @@ Y otras dependencias es necesario compilarlas. Esto porque trabajamos con las ve
 
 ## Estructura del proyecto
 
--   El directorio `data` contiene los datasets del reto
+-   El directorio `data` contiene los datasets del reto.
 
--   El directorio `images` contiene las imágenes para el notebook
+-   El directorio `images` contiene las imágenes para el notebook.
 
 -   El archivo `project.R` contiene el código para la resolución del problema.
 
