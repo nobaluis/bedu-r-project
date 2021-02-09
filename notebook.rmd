@@ -2,14 +2,17 @@
 title: "Tinanit Challenge (Kaggle)"
 author: "Team 22"
 date: "2/3/2021"
-bibliography: references.bib
-nocite: '@*'
 output:
   html_notebook:
-    toc: true
-    toc_float: true
-    number_sections: true
-    fig_caption: true
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+    fig_caption: yes
+  html_document:
+    toc: yes
+    df_print: paged
+nocite: '@*'
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -56,6 +59,7 @@ library(ggplot2)  # for graphics
 library(visdat)  # for data visualization
 
 # Model tools
+library(e1071)  # req. for caret
 library(caret)  # for classification training
 library(kernlab)  # for fitting SVMs
 library(mlbench)  # for measure performance
@@ -199,6 +203,10 @@ Como se puede apreciar tanto el algoritmo de KNN y Badgged Trees mantienen la di
 
 Otra parte importante es estandarizar los valores numéricos. Esto es necesario porque el modelo de SVM es sensible a magnitudes altas. Esto podría causar, por ejemplo, que se le dé importancia de más a una variable cuando su valor es demasiado alto, como es el caso de los valores de la columna de `Age`, que contienen valores enteros en el rango de $0-100$.
 
+$$
+z_i = \frac{x_i - \overline{x}}{\sigma}
+$$
+
 ```{r}
 # Normalize numeric values
 rec <- rec %>% step_BoxCox(all_numeric(), -all_outcomes())
@@ -217,6 +225,8 @@ En estas dos líneas se realizan:
 ### Codificar variables categóricas
 
 Algunos modelos de ML, como el de SVM, requieren que las variables de entrada ($X$) sean estrictamente numéricas. Para el caso de las binarias como `Sex` no existe problema, pero las variables con más de 2 niveles como `Embarket` que tiene 3 niveles entramos en un problema. Sin entrar en muchos detalles, es necesario realizar una codificación, como si de números binarios se tratara. Esta transformación es conocida como *One-hot encoding* y *dummy encoding* que solo varían en el número de columnas:
+
+![One-Hot & dummy encoding](images/ohe-vs-dummy.png)
 
 ```{r}
 rec <- rec %>% step_dummy(all_nominal_predictors())

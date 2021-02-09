@@ -8,6 +8,7 @@ library(ggplot2)  # for graphics
 library(visdat)  # for data visualization
 
 # Model tools
+library(e1071)  # req. for caret
 library(caret)  # for classification training
 library(kernlab)  # for fitting SVMs
 library(mlbench)  # for measure performance
